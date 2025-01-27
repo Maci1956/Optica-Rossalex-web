@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Óptica Rossalex</title>
+    <style>
+        /* Estilos generales */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f8ff;
+            color: #333;
+            overflow-x: hidden; /* Previene desplazamiento horizontal */
+        }
+
+        /* Estilo para la cabecera */
+        header {
+            background: linear-gradient(to right, #FFCC00, #0044cc);
+            padding: 50px 20px;
+            text-align: center;
+            color: white;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 60px;
+            font-weight: bold;
+        }
+
+        header p {
+            font-size: 22px;
+            margin-top: 10px;
+        }
+
+        /* Barra de navegación */
+        nav {
+            background-color: #0044cc;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        nav a {
+            color: white;
+            margin: 0 20px;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* Sección de bienvenida */
+        section#inicio {
+            padding: 40px 20px;
+            text-align: center;
+            background-color: #ffffff;
+            margin: 20px 10px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        section#inicio h2 {
+            color: #0044cc;
+            font-size: 30px;
+            margin-bottom: 20px;
+        }
+
+        section#inicio p {
+            font-size: 18px;
+            color: #666;
+        }
+
+        /* Sección de productos */
+        section#productos {
+            padding: 40px 20px;
+            background-color: #ffffff;
+            margin: 20px 10px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        section#productos h2 {
+            color: #0044cc;
+            font-size: 30px;
+            margin-bottom: 20px;
+        }
+
+        section#productos p {
+            font-size: 18px;
+            color: #666;
+        }
+
+        .productos {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .producto {
+            background-color: #FFCC00;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 15px;
+            width: 30%;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .producto:hover {
+            transform: translateY(-10px);
+            box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .producto h3 {
+            font-size: 22px;
+            color: #0044cc;
+        }
+
+        .producto p {
+            font-size: 16px;
+            color: #444;
+        }
+
+        .producto .detalles {
+            font-size: 14px;
+            color: #555;
+            margin-top: 10px;
+            background-color: #fff3cd;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        /* Estilo para las imágenes de los productos */
+        .imagen-producto {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Sección ¿Cómo darse cuenta que se necesitan lentes? */
+        section#como-darse-cuenta {
+            padding: 40px 20px;
+            background-color: #ffffff;
+            margin: 20px 10px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        section#como-darse-cuenta h2 {
+            color: #0044cc;
+            font-size: 30px;
+            margin-bottom: 20px;
+        }
+
+        section#como-darse-cuenta ul {
+            font-size: 18px;
+            color: #666;
+            list-style-type: disc;
+            margin-left: 20px;
+        }
+
+        section#como-darse-cuenta li {
+            margin-bottom: 10px;
+        }
+
+        /* Estilo para el pie de página */
+        footer {
+            background-color: #0044cc;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            position: relative;
+        }
+
+        /* Sección de contacto */
+        section#contacto {
+            padding: 40px 20px;
+            background-color: #ffffff;
+            margin: 20px 10px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        section#contacto h2 {
+            color: #0044cc;
+            font-size: 30px;
+            margin-bottom: 20px;
+        }
+
+        section#contacto p {
+            font-size: 18px;
+            color: #666;
+        }
+
+        .contacto-info ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .contacto-info li {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+
+        .contacto-info a {
+            color: #0044cc;
+            text-decoration: none;
+        }
+
+        .contacto-info a:hover {
+            text-decoration: underline;
+        }
+
+        /* Estilo para el pingüino asistente */
+        .pingüino {
+            width: 120px;
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .pingüino:hover {
+            transform: scale(1.2);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Cabecera -->
+    <header>
+        <h1>Óptica Rossalex</h1>
+        <p>Tu salud visual es nuestra prioridad</p>
+    </header>
+
+    <!-- Barra de navegación -->
+    <nav>
+        <a href="#inicio">Inicio</a>
+        <a href="#productos">Productos</a>
+        <a href="#como-darse-cuenta">¿Cómo saber si necesito lentes?</a>
+        <a href="#contacto">Contacto</a>
+    </nav>
+
+    <!-- Sección de bienvenida -->
+    <section id="inicio">
+        <h2>Bienvenidos a Óptica Rossalex</h2>
+        <p>En Óptica Rossalex, tu salud visual es nuestra principal prioridad. Nos especializamos en ofrecerte lentes de alta calidad, así como una variedad de micas diseñadas para brindarte la mejor experiencia visual. ¡Conoce nuestros productos y descubre cómo podemos ayudarte a cuidar tus ojos!</p>
+    </section>
+
+    <!-- Sección ¿Cómo saber si necesito lentes? -->
+    <section id="como-darse-cuenta">
+        <h2>¿Cómo saber si necesito lentes?</h2>
+        <p>Aquí te dejamos algunas señales que podrían indicar que es hora de visitar a un especialista y obtener lentes:</p>
+        <ul>
+            <li>Visión borrosa o dificultad para ver de lejos o de cerca.</li>
+            <li>Dolores de cabeza frecuentes, especialmente después de leer o usar pantallas.</li>
+            <li>Cansancio ocular, especialmente después de estar mucho tiempo frente a una computadora o teléfono móvil.</li>
+            <li>Sentir que entrecerramos los ojos para ver mejor.</li>
+            <li>Reflejos molestos o halos alrededor de las luces durante la noche.</li>
+        </ul>
+    </section>
+
+    <!-- Sección de productos -->
+<section id="productos">
+    <h2>Tipos de Micas mas Utilizadas</h2>
+    <p>Existen diversos tipos de micas que se adaptan a tus necesidades. Aquí te presentamos algunos de nuestros productos más populares:</p>
+
+    <div class="productos">
+        <div class="producto">
+            <img src="https://http2.mlstatic.com/D_NQ_NP_773504-MLM71392764298_082023-O.webp" alt="Mica Blanca" class="imagen-producto">
+            <h3>Mica Blanca</h3>
+            <p>Ideal para lentes ópticos básicos.</p>
+            <div class="detalles">
+                <p>Claridad y resistencia, perfecta para el uso diario.</p>
+            </div>
+        </div>
+        <div class="producto">
+            <img src="https://grupoopticosolher.com.mx/wp-content/uploads/2020/02/Reflejos.jpg" alt="Mica Antirreflejante" class="imagen-producto">
+            <h3>Mica Antirreflejante</h3>
+            <p>Reduce reflejos, ideal para el uso frente a pantallas.</p>
+            <div class="detalles">
+                <p>Ayuda a reducir la fatiga visual y es excelente para conducir de noche.</p>
+            </div>
+        </div>
+        <div class="producto">
+            <img src="https://prooptimania.s3.us-east-2.amazonaws.com/ckfinder/images/lentes-fotocromaticos-se-oscurecen-rayos-uv.jpg" alt="Mica Fotocromática" class="imagen-producto">
+            <h3>Mica Fotocromática</h3>
+            <p>Se oscurece con la luz solar.</p>
+            <div class="detalles">
+                <p>Se adapta a diferentes condiciones de luz, práctica para quienes no quieren cambiar de lentes al sol.</p>
+            </div>
+        </div>
+        <!-- Nuevas micas -->
+        <div class="producto">
+            <img src="https://binoqular.com/cdn/shop/articles/Lentes-fotocrom-ticas-para-miop-a-lentes-de-gafas-asf-ricas-para-miop-a-color-rosa.jpg_q50.jpg?v=1620872813" alt="Mica Blue Ray" class="imagen-producto">
+            <h3>Mica Blue Ray</h3>
+            <p>Protección contra la luz azul.</p>
+            <div class="detalles">
+                <p>Ideal para reducir la fatiga ocular causada por pantallas digitales.</p>
+            </div>
+        </div>
+        <div class="producto">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIb6zA71gZjwHm4o85fK3peEDGgS0aZnPuSA&s" alt="Mica Cizal" class="imagen-producto">
+            <h3>Mica Cizal</h3>
+            <p>Alta resistencia y ligereza.</p>
+            <div class="detalles">
+                <p>Ofrece gran durabilidad y comodidad en el uso diario.</p>
+            </div>
+        </div>
+        <div class="producto">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROaV-YWn9vFP3BaFUcsiIyjTMWLyHI0qJmUw&s" alt="Mica Policarbonato" class="imagen-producto">
+            <h3>Mica Policarbonato</h3>
+            <p>Resistencia a impactos.</p>
+            <div class="detalles">
+                <p>Perfecta para lentes de seguridad y actividades deportivas.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+    <!-- Sección de contacto -->
+    <section id="contacto">
+        <h2>Contacto</h2>
+        <p>Si tienes alguna pregunta o deseas hacer una cita, no dudes en ponerte en contacto con nosotros:</p>
+        <div class="contacto-info">
+            <ul>
+                <li><strong>Dirección:</strong> Trabajamos a domicilio</li>
+                <li><strong>Teléfono:</strong> 7223332122</li>
+                <li><strong>Facebook:</strong> <a> https://www.facebook.com/share/1D3CbaoPGJ/</a></li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Pie de página -->
+    <footer>
+        <p>&copy; 2025 Óptica Rossalex. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- Pingüino Asistente -->
+    <img src="https://static.wikia.nocookie.net/walterlantz/images/2/2a/Chilly_Willy.png/revision/latest?cb=20240421212009" alt="Pingüino Asistente" class="pingüino" onclick="alert('¡Hola! ¿En qué puedo ayudarte?')">
+
+</body>
+</html>
+
